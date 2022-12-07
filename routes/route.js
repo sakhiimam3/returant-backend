@@ -27,6 +27,20 @@ import {
   updateCaseStudy,
   deleteCaseStudy,
 } from "../controllers/caseStudiesController.js";
+import {
+  addAboutHeader,
+  getAboutHeaders,
+  getAboutHeaderById,
+  updateAboutHeader,
+  deleteAboutHeader,
+} from "../controllers/aboutHeaderController.js";
+import {
+  addTeamProfile,
+  getTeamProfiles,
+  getTeamProfileById,
+  updateTeamProfile,
+  deleteTeamProfile,
+} from "../controllers/teamProfileController.js";
 
 const router = express.Router();
 
@@ -57,5 +71,19 @@ router.get("/getCaseStudies", getCaseStudies);
 // router.get("/:id", getCaseStudyById);
 router.put("/updateCaseStudy", updateCaseStudy);
 router.delete("/deleteCaseStudy", deleteCaseStudy);
+
+// About Header Routes
+router.post("/addAboutHeader", addAboutHeader);
+router.get("/getAboutHeaders", getAboutHeaders);
+// router.get("/:id", getAboutHeaderById);
+router.put("/updateAboutHeader", updateAboutHeader);
+router.delete("/deleteAboutHeader", deleteAboutHeader);
+
+// About Team Profile Routes
+router.post("/addTeamProfile", addTeamProfile);
+router.get("/getTeamProfiles", getTeamProfiles);
+// router.get("/:id", getTeamProfileById);
+router.put("/updateTeamProfile", updateTeamProfile);
+router.delete("/deleteTeamProfile", deleteTeamProfile);
 
 export default router;
