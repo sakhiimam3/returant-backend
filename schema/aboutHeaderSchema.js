@@ -4,7 +4,8 @@ const aboutHeaderSchema = mongoose.Schema({
     title:String,
     text:String,
     subtitle:String,
-    subText:String
+    subText:String,
+    subText2:String
 })
 
 const aboutHeader = mongoose.model('about-header',aboutHeaderSchema)

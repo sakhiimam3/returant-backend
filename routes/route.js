@@ -41,6 +41,20 @@ import {
   updateTeamProfile,
   deleteTeamProfile,
 } from "../controllers/teamProfileController.js";
+import {
+  addContactInfo,
+  getContactInformation,
+  getContactInfoById,
+  updateContactInfo,
+  deleteContactInfo,
+} from "../controllers/contactInfoController.js";
+import {
+  addFooter,
+  getFooter,
+  getFooterById,
+  updateFooter,
+  deleteFooter,
+} from "../controllers/footerController.js";
 
 const router = express.Router();
 
@@ -85,5 +99,19 @@ router.get("/getTeamProfiles", getTeamProfiles);
 // router.get("/:id", getTeamProfileById);
 router.put("/updateTeamProfile", updateTeamProfile);
 router.delete("/deleteTeamProfile", deleteTeamProfile);
+
+// Contact Page Information Routes
+router.post("/addContactInfo", addContactInfo);
+router.get("/getContactInformation", getContactInformation);
+// router.get("/:id", getContactInfoById);
+router.put("/updateContactInfo", updateContactInfo);
+router.delete("/deleteContactInfo", deleteContactInfo);
+
+// Footer Routes
+router.post("/addFooter", addFooter);
+router.get("/getFooter", getFooter);
+// router.get("/:id", getFooterById);
+router.put("/updateFooter", updateFooter);
+router.delete("/deleteFooter", deleteFooter);
 
 export default router;
