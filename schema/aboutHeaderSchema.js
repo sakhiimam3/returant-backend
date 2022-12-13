@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const aboutHeaderSchema = mongoose.Schema({
-    title:String,
-    text:String,
-    subtitle:String,
-    subText:String,
-    subText2:String
+    title:{ type: String, required: true },
+    text:{ type: String, required: true },
+    subtitle:{ type: String, required: true },
+    subText:{ type: String, required: true },
+    subText2:{ type: String, required: true }
 })
 
 const aboutHeader = mongoose.model('about-header',aboutHeaderSchema)

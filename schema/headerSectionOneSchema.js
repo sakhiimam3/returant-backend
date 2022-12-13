@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const headerSectionOneSchema = mongoose.Schema({
-    title:String,
-    subtitle:String,
-    text:String
+    title:{ type: String, required: true },
+    subtitle:{ type: String, required: true },
+    text:{ type: String, required: true }
 })
 
 const headerSectionOne = mongoose.model('header-section-one',headerSectionOneSchema)

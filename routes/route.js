@@ -55,6 +55,32 @@ import {
   updateFooter,
   deleteFooter,
 } from "../controllers/footerController.js";
+import {
+  addProjectCategory,
+  getProjectCategories,
+  updateProjectCategory,
+  deleteProjectCategory,
+} from "../controllers/projectCategoryController.js";
+import {
+  addProjectSubCategory,
+  getProjectSubCategories,
+  getProjectSubCategoryByParentId,
+  updateProjectSubCategory,
+  deleteProjectSubCategory,
+} from "../controllers/projectSubCategoryController.js";
+import {
+  deleteClient,
+  updateClient,
+  getClients,
+  addClient,
+} from "../controllers/clientController.js";
+import {
+  addClientReview,
+  getClientReviews,
+  getClientReviewByClientId,
+  updateClientReview,
+  deleteClientReview,
+} from "../controllers/clientReviewController.js";
 
 const router = express.Router();
 
@@ -114,4 +140,32 @@ router.get("/getFooter", getFooter);
 router.put("/updateFooter", updateFooter);
 router.delete("/deleteFooter", deleteFooter);
 
+// Project Categories Routes
+router.post("/addProjectCategory", addProjectCategory);
+router.get("/getProjectCategories", getProjectCategories);
+router.put("/updateProjectCategory", updateProjectCategory);
+router.delete("/deleteProjectCategory", deleteProjectCategory);
+
+// Project Sub Category Routes
+router.post("/addProjectSubCategory", addProjectSubCategory);
+router.get("/getProjectSubCategories", getProjectSubCategories);
+router.put("/updateProjectSubCategory", updateProjectSubCategory);
+router.get(
+  "/getProjectSubCategoryByParentId/:key",
+  getProjectSubCategoryByParentId
+);
+router.delete("/deleteProjectSubCategory", deleteProjectSubCategory);
+
+// Client's Logo Routes
+router.post("/addClient", addClient);
+router.get("/getClients", getClients);
+router.put("/updateClient", updateClient);
+router.delete("/deleteClient", deleteClient);
+
+// Client Reviews Routes
+router.post("/addClientReview", addClientReview);
+router.get("/getClientReviews", getClientReviews);
+router.put("/updateClientReview", updateClientReview);
+router.get("/getClientReviewByClientId/:key", getClientReviewByClientId);
+router.delete("/deleteClientReview", deleteClientReview);
 export default router;
