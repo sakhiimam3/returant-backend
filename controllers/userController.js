@@ -67,7 +67,7 @@ export const getUser = asyncHandler(async (req, res) => {
 // Generate JWT
 
 const generateToken = (id) => {
-  return jwt.sign({ id }, "Hammad Secret Key", {
-    expiresIn: "30d",
+  return jwt.sign({ id }, process.env.JWT_SECRET_KEY, {
+    expiresIn: "3d",
   });
 };
