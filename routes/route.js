@@ -81,6 +81,11 @@ import {
   updateClientReview,
   deleteClientReview,
 } from "../controllers/clientReviewController.js";
+import {
+  loginUser,
+  registerUser,
+  getUser,
+} from "../controllers/userController.js";
 
 const router = express.Router();
 
@@ -168,4 +173,9 @@ router.get("/getClientReviews", getClientReviews);
 router.put("/updateClientReview", updateClientReview);
 router.get("/getClientReviewByClientId/:key", getClientReviewByClientId);
 router.delete("/deleteClientReview", deleteClientReview);
+
+// Authentication Routes
+router.post("/login", loginUser);
+router.post("/register", registerUser);
+router.get("/getUser", getUser);
 export default router;
