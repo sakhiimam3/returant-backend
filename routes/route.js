@@ -87,6 +87,12 @@ import {
   getUser,
 } from "../controllers/userController.js";
 
+import { sendEmail } from "../controllers/emailController.js";
+import {
+  sendUserMessage,
+  getUserMessages,
+} from "../controllers/userMessageController.js";
+
 const router = express.Router();
 
 // Header Section One Routes
@@ -178,4 +184,12 @@ router.delete("/deleteClientReview", deleteClientReview);
 router.post("/login", loginUser);
 router.post("/register", registerUser);
 router.get("/getUser", getUser);
+
+// Email Routes
+// const double = () =>{
+//   sendEmail
+//   sendUserMessage
+// }
+router.post("/sendEmail", sendEmail, sendUserMessage);
+router.get("/getUserMessages", getUserMessages);
 export default router;
