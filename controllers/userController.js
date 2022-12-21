@@ -16,7 +16,7 @@ export const loginUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    res.status(400);
+    res.status(400).json({ message: "Invalid credentails" });
     throw new Error("Invalid credentails");
   }
   res.json({ message: "login user" });
