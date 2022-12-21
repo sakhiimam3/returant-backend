@@ -60,10 +60,14 @@ export const registerUser = asyncHandler(async (req, res) => {
 });
 
 // To Get User
-export const getUser = asyncHandler(async (req, res) => {
-  res.json({ message: "Get user" });
-});
-
+export const getUser = async (request, response) => {
+  try {
+    const data = await User.find({});
+    response.status(200).json(data);
+  } catch (error) {
+    response.status(404).json({ message: error.message });
+  }
+};
 // Generate JWT
 
 const generateToken = (id) => {
