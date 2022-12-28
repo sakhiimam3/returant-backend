@@ -67,6 +67,7 @@ import {
   getProjectSubCategoryByParentId,
   updateProjectSubCategory,
   deleteProjectSubCategory,
+  getProjectSubCategoriesWithName,
 } from "../controllers/projectSubCategoryController.js";
 import {
   deleteClient,
@@ -92,7 +93,7 @@ import {
   sendUserMessage,
   getUserMessages,
 } from "../controllers/userMessageController.js";
-
+import { addOptionData, getOptions } from "../controllers/optionController.js";
 const router = express.Router();
 
 // Header Section One Routes
@@ -102,7 +103,7 @@ router.get("/getHeaderSecOne", getHeaderOne);
 router.put("/updateHeaderSectionOne", updateHeaderSectionOne);
 router.delete("/deleteHeaderSectionOne", deleteHeaderSectionOne);
 
-// Header Section One Routes
+// Header Section Two Routes
 router.post("/addHeaderSecTwo", addHeaderSecTwo);
 router.get("/getHeaderSecTwo", getHeaderSecTwo);
 // router.get("/:id", getHeadeSecTwoById);
@@ -160,11 +161,16 @@ router.delete("/deleteProjectCategory", deleteProjectCategory);
 // Project Sub Category Routes
 router.post("/addProjectSubCategory", addProjectSubCategory);
 router.get("/getProjectSubCategories", getProjectSubCategories);
+router.get("/getProjectSubCategoriesWithName", getProjectSubCategoriesWithName);
 router.put("/updateProjectSubCategory", updateProjectSubCategory);
-router.get(
-  "/getProjectSubCategoryByParentId/:key",
+router.post(
+  "/getProjectSubCategoryByParentId",
   getProjectSubCategoryByParentId
 );
+// router.get(
+//   "/getProjectSubCategoryByParentId/:key",
+//   getProjectSubCategoryByParentId
+// );
 router.delete("/deleteProjectSubCategory", deleteProjectSubCategory);
 
 // Client's Logo Routes
@@ -192,4 +198,7 @@ router.get("/getUser", getUser);
 // }
 router.post("/sendEmail", sendEmail, sendUserMessage);
 router.get("/getUserMessages", getUserMessages);
+// Options
+router.post("/addOptions", addOptionData);
+router.get("/getOptions", getOptions);
 export default router;

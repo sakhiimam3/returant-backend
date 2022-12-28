@@ -31,6 +31,7 @@ export const getCaseStudyById = async (request, response) => {
 };
 export const updateCaseStudy = async (request, response) => {
   let data = request.body;
+  // console.log(data,'data of case study')
   const editData = new CaseStudy(data);
   try {
     await CaseStudy.updateOne({ _id: data._id }, editData);

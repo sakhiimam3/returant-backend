@@ -2,6 +2,7 @@ import { Schema, model } from "mongoose";
 
 const ProjectSubCategorySchema = new Schema({
   category_id: { type: String, required: true },
+  // category_id: { type: String, required: true },
   title: { type: String, required: true },
   descrition: { type: String, required: true },
   project_image: { type: String, required: true },
