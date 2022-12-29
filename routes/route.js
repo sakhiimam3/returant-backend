@@ -68,6 +68,7 @@ import {
   updateProjectSubCategory,
   deleteProjectSubCategory,
   getProjectSubCategoriesWithName,
+  getProjectByKeyId,
 } from "../controllers/projectSubCategoryController.js";
 import {
   deleteClient,
@@ -167,10 +168,7 @@ router.post(
   "/getProjectSubCategoryByParentId",
   getProjectSubCategoryByParentId
 );
-// router.get(
-//   "/getProjectSubCategoryByParentId/:key",
-//   getProjectSubCategoryByParentId
-// );
+router.get("/getProjectSubCategories/:id", getProjectByKeyId);
 router.delete("/deleteProjectSubCategory", deleteProjectSubCategory);
 
 // Client's Logo Routes

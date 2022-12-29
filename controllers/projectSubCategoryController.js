@@ -30,12 +30,8 @@ export const getProjectSubCategoriesWithName = async (request, response) => {
     const finalData = mergedData.map((v) => {
       const cat = { category: v.category };
       const result = Object.assign({}, v._doc, cat);
-      // const result = [v._doc, cat];
       return result;
     });
-    // console.log(finalData);
-    // const updatedObject = Object.assign({}, finalData[0], finalData[1]);
-    // console.log(updatedObject)
     response.status(200).json(finalData);
   } catch (error) {
     response.status(404).json({ message: error.message });
@@ -47,6 +43,14 @@ export const getProjectSubCategoryByParentId = async (request, response) => {
     const data = await ProjectSubCategory.find({
       $or: [{ category_id: { $regex: category } }],
     });
+    response.status(200).json(data);
+  } catch (error) {
+    response.status(404).json({ message: error.message });
+  }
+};
+export const getProjectByKeyId = async (request, response) => {
+  try {
+    const data = await ProjectSubCategory.find({ _id: request.params.id });
     response.status(200).json(data);
   } catch (error) {
     response.status(404).json({ message: error.message });
