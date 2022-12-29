@@ -27,8 +27,13 @@ export const getProjectSubCategoriesWithName = async (request, response) => {
       const category = data2.find((v) => v._id == item.category_id);
       return { ...item, category: category.title };
     });
-    console.log(mergedData);
-    response.json(mergedData);
+    const finalData = mergedData.map((v) => {
+      const cat = { category: v.category };
+      const result = [v._doc, cat];
+      return result;
+    });
+    console.log(finalData);
+    response.status(200).json(finalData);
   } catch (error) {
     response.status(404).json({ message: error.message });
   }
@@ -38,12 +43,7 @@ export const getProjectSubCategoryByParentId = async (request, response) => {
   try {
     const data = await ProjectSubCategory.find({
       $or: [{ category_id: { $regex: category } }],
-      // $or: [{ category_id: { $regex: request.params.key } }],
     });
-    // const data2 = await ProjectCategory.findById(category);
-    // const finalData = {data, data2}
-    // console.log(finalData)
-    // response.status(200).json(data2);
     response.status(200).json(data);
   } catch (error) {
     response.status(404).json({ message: error.message });

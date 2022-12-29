@@ -161,7 +161,7 @@ router.delete("/deleteProjectCategory", deleteProjectCategory);
 // Project Sub Category Routes
 router.post("/addProjectSubCategory", addProjectSubCategory);
 router.get("/getProjectSubCategories", getProjectSubCategories);
-router.get("/getProjectSubCategoriesWithName", getProjectSubCategoriesWithName);
+router.get("/getProjectWithCategoryName", getProjectSubCategoriesWithName);
 router.put("/updateProjectSubCategory", updateProjectSubCategory);
 router.post(
   "/getProjectSubCategoryByParentId",
