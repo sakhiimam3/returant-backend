@@ -29,10 +29,13 @@ export const getProjectSubCategoriesWithName = async (request, response) => {
     });
     const finalData = mergedData.map((v) => {
       const cat = { category: v.category };
-      const result = [v._doc, cat];
+      const result = Object.assign({}, v._doc, cat);
+      // const result = [v._doc, cat];
       return result;
     });
-    console.log(finalData);
+    // console.log(finalData);
+    // const updatedObject = Object.assign({}, finalData[0], finalData[1]);
+    // console.log(updatedObject)
     response.status(200).json(finalData);
   } catch (error) {
     response.status(404).json({ message: error.message });
