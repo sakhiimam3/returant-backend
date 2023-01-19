@@ -23,7 +23,6 @@ export const sendEmail = async (req, res,next) => {
       if (error) {
         console.log("Error" + error);
       } else {
-        // res.status(201).json({ status: 201, info });
         next()
       }
     });

@@ -190,10 +190,6 @@ router.post("/register", registerUser);
 router.get("/getUser", getUser);
 
 // Email Routes
-// const double = () =>{
-//   sendEmail
-//   sendUserMessage
-// }
 router.post("/sendEmail", sendEmail, sendUserMessage);
 router.get("/getUserMessages", getUserMessages);
 // Options
