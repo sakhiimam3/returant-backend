@@ -19,3 +19,12 @@ export const getUserMessages = async (request, response) => {
     response.status(404).json({ message: error.message });
   }
 };
+export const deleteUserMessage = async (request, response) => {
+  let data = request.body;
+  try {
+    await UserMessage.deleteOne({ _id: data._id });
+    response.status(201).json("Message Deleted Successfully");
+  } catch (error) {
+    response.status(409).json({ message: error.message });
+  }
+};

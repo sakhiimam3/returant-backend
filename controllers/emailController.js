@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-export const sendEmail = async (req, res,next) => {
+export const sendEmail = async (req, res, next) => {
   const { name, phone, email, message } = req.body;
 
   try {
@@ -16,14 +16,14 @@ export const sendEmail = async (req, res,next) => {
       from: email,
       to: "hammadlucidwebdev@gmail.com",
       subject: "Message from Alpha web shop",
-      html: `<h4> Name: ${name} </h4> <h4> Phone: ${phone} </h4><h4> Email: ${email} </h4> <h4>Message: ${message} </h4>`,
+      html: `<h3> Name: ${name} </h3><h3> Phone: ${phone} </h3><h3> Email: ${email} </h3> <h3>Message:</h3> <p>${message}</p>`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log("Error" + error);
       } else {
-        next()
+        next();
       }
     });
   } catch (error) {

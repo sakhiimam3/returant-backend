@@ -93,6 +93,7 @@ import { sendEmail } from "../controllers/emailController.js";
 import {
   sendUserMessage,
   getUserMessages,
+  deleteUserMessage,
 } from "../controllers/userMessageController.js";
 import { addOptionData, getOptions } from "../controllers/optionController.js";
 const router = express.Router();
@@ -192,6 +193,7 @@ router.get("/getUser", getUser);
 // Email Routes
 router.post("/sendEmail", sendEmail, sendUserMessage);
 router.get("/getUserMessages", getUserMessages);
+router.delete("/deleteUserMessage", deleteUserMessage);
 // Options
 router.post("/addOptions", addOptionData);
 router.get("/getOptions", getOptions);
