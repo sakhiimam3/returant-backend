@@ -38,18 +38,12 @@ io.on("connection", (socket) => {
   });
 
   socket.on("sendNotification", ({ senderName, email, phone, message }) => {
-    // const receiver = getUser(receiverName);
-    // console.log(receiver?.socketId);
     io.emit("getNotification", {
       senderName,
       email,
       phone,
       message,
     });
-    // io.to(receiver?.socketId).emit("getNotification", {
-    //   senderName,
-    //   type,
-    // });
   });
   socket.on("sendText", async ({ senderName, receiverName, text }) => {
     const receiver = await getUser(senderName);
