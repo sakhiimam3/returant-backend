@@ -96,6 +96,13 @@ import {
   deleteUserMessage,
 } from "../controllers/userMessageController.js";
 import { addOptionData, getOptions } from "../controllers/optionController.js";
+import {
+  addReviewDescription,
+  getReviewDescription,
+  updateReviewDescription,
+  deleteReviewDescription,
+} from "../controllers/reviewDescriptionController.js";
+
 const router = express.Router();
 
 // Header Section One Routes
@@ -171,6 +178,12 @@ router.post(
 );
 router.get("/getProjectSubCategories/:id", getProjectByKeyId);
 router.delete("/deleteProjectSubCategory", deleteProjectSubCategory);
+
+// Review Description Routes
+router.post("/addReviewDescription", addReviewDescription);
+router.get("/getReviewDescription", getReviewDescription);
+router.put("/updateReviewDescription", updateReviewDescription);
+router.delete("/deleteReviewDescription", deleteReviewDescription);
 
 // Client's Logo Routes
 router.post("/addClient", addClient);

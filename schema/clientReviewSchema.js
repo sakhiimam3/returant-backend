@@ -9,4 +9,5 @@ const clientReviewSchema = new Schema({
 });
 
 const ClientReview = model("clients-review", clientReviewSchema);
+
 export default ClientReview;
