@@ -1,4 +1,4 @@
-import ClientReview from "../schema/ClientReviewSchema.js";
+import ClientReview from "../schema/clientReviewSchema.js";
 
 
 export const addClientReview = async (request, response) => {
