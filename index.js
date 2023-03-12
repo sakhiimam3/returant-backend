@@ -1,10 +1,11 @@
-import express from "express";
-import dotenv from "dotenv";
-import Connection from "./config/db.js";
-import Routes from "./routes/route.js";
-import cors from "cors";
-import bodyParser from "body-parser";
-import http from "http";
+const express = require("express");
+const dotenv = require("dotenv");
+const Connection = require("./config/db.js");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const http = require("http");
+const Routes = require("./routes/route.js");
+const path = require("path");
 
 dotenv.config();
 const port = process.env.PORT || 8000;
@@ -19,5 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 Connection();
+// Serve uploaded files from the "upload" directory
+// Serve uploaded files from the "upload" directory
+app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 app.use("/", Routes);
